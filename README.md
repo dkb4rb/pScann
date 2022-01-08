@@ -1,4 +1,4 @@
-<img width="41%" align="right" alt="Github" src="https://github.com/dkb4rb/pScann/assets/image.png" />
+<img width="41%" align="right" alt="Github" src="https://github.com/dkb4rb/pScann/blob/main/assets/image.png" />
 
 # pScann
 ## Sanning Ports Mapping
