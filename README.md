@@ -15,17 +15,17 @@ Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-cd dillinger
-npm i
-node app
+cd pScann
+chmod +x pScann
+cp pScann /usr/local/bin
 ```
 
-For production environments...
+Excecution Program...
 
-```sh
-npm install --production
-NODE_ENV=production node app
 ```
+pScann 8.8.8.8
+```
+
 * [pScann](pScann)
 
 <img width ='32px' src ='https://raw.githubusercontent.com/rahulbanerjee26/githubAboutMeGenerator/main/icons/linux.svg'> 
