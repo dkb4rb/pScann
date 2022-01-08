@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+#Colours
+greenColour="\e[0;32m\033[1m"
+endColour="\033[0m\e[0m"
+redColour="\e[0;31m\033[1m"
+blueColour="\e[0;34m\033[1m"
+yellowColour="\e[0;33m\033[1m"
+purpleColour="\e[0;35m\033[1m"
+turquoiseColour="\e[0;36m\033[1m"
+grayColour="\e[0;37m\033[1m"
+
+trap ctrl_c INT
+
+function ctrl_c(){
+	echo -ne "\n\n${yellowColour}[!]${endColour} ${purpleColour}saliendo...${endColour}"
+	exit 1;
+}
+
+function banner(){
+	echo -ne ""
+	echo -ne "${yellowColour}@@@@@@@    @@@@@@    @@@@@@@   @@@@@@   @@@  @@@  @@@  @@@\n"
+	echo -ne "@@@@@@@@  @@@@@@@   @@@@@@@@  @@@@@@@@  @@@@ @@@  @@@@ @@@${endColour}\n"
+	echo -ne "${turquoisColour}@@!  @@@  !@@       !@@       @@!  @@@  @@!@!@@@  @@!@!@@@\n"
+	echo -ne "!@!  @!@  !@!       !@!       !@!  @!@  !@!!@!@!  !@!!@!@!${endColour}\n"
+	echo -ne "@!@@!@!   !!@@!!    !@!       @!@!@!@!  @!@ !!@!  @!@ !!@!\n"
+	echo -ne "!!@!!!     !!@!!!   !!!       !!!@!!!!  !@!  !!!  !@!  !!!\n"
+	echo -ne "${purpleColour}!!:            !:!  :!!       !!:  !!!  !!:  !!!  !!:  !!!\n"
+	echo -ne ":!:           !:!   :!:       :!:  !:!  :!:  !:!  :!:  !:!\n"
+	echo -ne " ::       :::: ::    ::: :::  ::   :::   ::   ::   ::   ::\n"
+	echo -ne " :        :: : :     :: :: :   :   : :  ::    :   ::    :\n"
+	echo -ne "${endColour}\n"
+	echo -ne "\n"
+	echo -ne "\t\t ${purpleColour}Author [!]${endColour}\n"
+	echo -ne "\t\t\t ${greenColour}Juan Duque${endColour}\n"
+	echo -ne "\t\t ${purpleColour}Github${endColour} : ${greenColour}@dkb4rb${endColour}\n\n"
+}
+
+
+function new_con(){
+	HOST_IP=$1
+	if [ $# -lt 1 ]; then
+		clear
+		banner;
+		echo -ne "${redColour}Usage: ${endColour}\n\t${greenColour}./pScann ${endColour} ${turqouisColour}HOST_IP${endColour}"
+	else
+		echo -ne "\n\t${redColour}[!] ${endColour} ${purpleColour}Scanning HOST ---> ${HOST_IP}${endColour}\n"
+		
+		for port in $(seq 1 65365);
+		do
+			timeout 1 bash -c "echo '' > /dev/tcp/${HOST_IP}/$port" 2>/dev/null
+
+			if [ "$(echo $?)" -eq 0 ]; then
+				echo "PORT OPEN ---> ${port}"
+			fi
+		done; wait
+		tput cnorm
+	fi
+}
+
+function main(){
+	banner;
+	new_con $1;
+}
+
+main $1;
