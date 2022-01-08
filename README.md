@@ -26,8 +26,7 @@ NODE_ENV=production node app
 ```
 * [pScann](pScann)
 
- <a href= https://github.com/dkb4rb?tab=repositories&q=&type=&language=linux&sort= > <img width ='32px' src ='https://raw.githubusercontent.com/rahulbanerjee26/githubAboutMeGenerator/main/icons/linux.svg'> </a>
- 
+<img width ='32px' src ='https://raw.githubusercontent.com/rahulbanerjee26/githubAboutMeGenerator/main/icons/linux.svg'> 
  **************************************
 <h2 align = 'center'>Author</h2>
 <h2 align = 'center' ><img src='https://raw.githubusercontent.com/ShahriarShafin/ShahriarShafin/main/Assets/handshake.gif' width="300px"> 
